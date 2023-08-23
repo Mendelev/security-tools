@@ -12,7 +12,7 @@ Para os usuários de Windows, seguem alguns tutoriais de instalação de ferrame
 Um pequeno terminal irá abrir solicitando um nome de usuário e uma senha. Escolha uma senha fácil de lembrar
 1.3 Instalação encerrada, pode fechar o terminal.
 
-2. Instalação do Docker: Faça o download do docker Desktop execute o .exe e siga o passo a passo do instalador. Essencialmente só clicar em next para ele concluir a instalação e após isso ele reiniciará o computador.
+2. Instalação do Docker: Faça o download do docker Desktop execute o .exe e siga o passo a passo do instalador. Essencialmente só clicar em next para ele concluir a instalação e após isso ele reiniciará o computador. Link -> https://docs.docker.com/desktop/install/windows-install/
 
 3. Instalação do Go
 
