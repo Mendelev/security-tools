@@ -1,6 +1,53 @@
 
-# Ferramentas a investigar.
+# Para os participantes do Tretathon
 
+Para os usuários de linux, recomenda-se a instalação do docker para a utilização de algumas ferramentas que funcionam de maneira mais fácil via docker.
+
+Para os usuários de Windows, seguem alguns tutoriais de instalação de ferramentas úteis.
+
+1. Instalação do WSL siga o passo a passo: https://marcelo-albuquerque.medium.com/como-instalar-o-wsl-2-no-windows-10-3e26d99d7161
+
+1.1. Recomenda-se a utilização do sistema Ubuntu 20.04 na Microsoft Store
+1.2. Após a instalação do Ubuntu, digite Ubuntu na barra de pesquisa do Windows e clique nele.
+Um pequeno terminal irá abrir solicitando um nome de usuário e uma senha. Escolha uma senha fácil de lembrar
+1.3 Instalação encerrada, pode fechar o terminal.
+
+2. Instalação do Docker: Faça o download do docker Desktop execute o .exe e siga o passo a passo do instalador. Essencialmente só clicar em next para ele concluir a instalação e após isso ele reiniciará o computador.
+
+3. Instalação do Go
+
+3.1. Após instalar o Linux Ubuntu 20.04, digite ubuntu na barra de pesquisa do Windows.
+3.2. Execute o comando no terminal e aguarde o download do Go
+```bash
+wget https://go.dev/dl/go1.21.0.linux-amd64.tar.gz
+```
+3.3. Execute o comando abaixo no terminal para descompactar os arquivos do Go
+
+```bash
+tar -xvf go1.21.0.linux-amd64.tar.gz
+```
+
+3.4. Mova o Go para a pasta /usr/local com o comando abaixo
+```bash
+sudo mv go /usr/local/
+```
+
+3.5. Abra o arquivo profile com o editor nano
+```bash
+sudo nano /etc/profile
+```
+
+3.6. Cole o conteúdo abaixo no final do arquivo, use a setinha para baixo e dessa forma, descerá no arquivo
+```bash
+export PATH=$PATH:/usr/local/go/bin
+```
+
+3.7 Salve o arquivo com ctrl+x, depois y e depois enter
+
+3.8 Teste o Go no terminal. Ele dirá que o go está na versão 1.21 se tudo correr bem.
+```bash
+go version
+```
 
 
 ## Trivy - https://github.com/aquasecurity/trivy
