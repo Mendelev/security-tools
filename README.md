@@ -52,7 +52,7 @@ go version
 
 ## Trivy - https://github.com/aquasecurity/trivy
 
-- Boa para ser usada em CD
+- Boa para ser usada em pipelines de Continuous Delivery
 
 - Instalação do Trivy -> https://aquasecurity.github.io/trivy/v0.30.4/getting-started/installation/
 
@@ -61,7 +61,7 @@ Exemplo: trivy image --ignore-unfixed nome_da_imagem
 
 ## Grype - https://github.com/anchore/grype
 
-- Não é boa para ser usada em CD, apenas para análises detalhadas
+- Não é boa para ser usada em pipelines de Continuous Delivery, apenas para análises detalhadas
 
 - Similar ao Trivy, mas a única vantagem é que ele fornece análises mais detalhadas. Mas essas análises detalhadas são úteis para uma investigação e não para a automação de um pipeline.
 
@@ -76,12 +76,12 @@ sudo curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh 
 Há ferramentas de análise estática focadas na segurança, seguem exemplos abaixo
 
 - Ferramenta 1: Spectralops - https://spectralops.io/
-- Boa para CD, mas com limitações, devido ao plano gratuito
+- Boa para pipelines de Continuous Delivery, mas com limitações, devido ao plano gratuito
 
 Para usar, basta criar uma conta e seguir as instruções
 
 - Ferramenta 2: Bandit - https://www.appsecsanta.com/bandit
-- Boa para CD
+- Boa para pipelines de Continuous Delivery
 
 Pode ser instalado com o pip.
 Exemplos de uso: 
@@ -91,7 +91,7 @@ Exemplos de uso:
 
 ## OWASP ZAP - https://www.zaproxy.org/download/
 
-- Não é boa para CD, mas é bastante útil para propósitos gerais.
+- Não é boa para pipelines de Continuous Delivery, mas é bastante útil para propósitos gerais.
 
 * Faça download clicando no Linux Installer e rode o comando no terminal:
 sudo bash ZAP_2_11_1_unix.sh
@@ -102,7 +102,7 @@ https://www.zaproxy.org/getting-started/#zap-desktop-ui
 
 ## Jaeles - https://jaeles-project.github.io
 
-- Não é boa para CD, apenas para análises detalhadas
+- Não é boa para pipelines de Continuous Delivery, apenas para análises detalhadas
 
 Instalação - https://jaeles-project.github.io/installation/
 
@@ -122,7 +122,7 @@ jaeles scan -u https://URL -s ghsec-jaeles-signatures/host-header-injection.yaml
 
 ## Disearch - https://github.com/maurosoria/dirsearch
 
-- Não é boa para CD, mas recomendo o uso com certa regularidade
+- Não é boa para pipelines de Continuous Delivery, mas recomendo o uso com certa regularidade
 
 * Melhor jeito de instalar, faça clone do repo
 git clone https://github.com/maurosoria/dirsearch.git --depth 1 
@@ -132,7 +132,7 @@ python3 dirsearch.py -u https://URL
 
 ## Arjun - https://github.com/s0md3v/Arjun
 
-- Não é boa para CD, mas recomendo uso com certa regularidade
+- Não é boa para pipelines de Continuous Delivery, mas recomendo uso com certa regularidade
 
 
 * Instalação -> pip3 install arjun
@@ -169,7 +169,7 @@ Pode ser instalado com o pip.
  - docker run projectdiscovery/nuclei -update-templates -v
  - docker run projectdiscovery/nuclei -u dominio.com.br
 
- Retorna um log facilmente automatizado no CD, porém nao encontrou nenhuma vulnerabilidade
+ Retorna um log facilmente automatizado no pipelines de Continuous Delivery, porém nao encontrou nenhuma vulnerabilidade
  
 ## Tsunami - https://github.com/google/tsunami-security-scanner
  
@@ -223,7 +223,7 @@ sudo nmap -sS dominio.com.br | notify -id nmap
 Neste caso eu quero que a notificação a ser usada, seja a que eu configurei com o id **nmap**
 
 ## Findomain
- Ferramenta paga, porém com versão gratuita, para ser usada junto de outros serviços. Para notificar quando um subdominio novo é encontrado. Não acho que faz tanto sentido ser usada para CD.
+ Ferramenta paga, porém com versão gratuita, para ser usada junto de outros serviços. Para notificar quando um subdominio novo é encontrado. Não acho que faz tanto sentido ser usada para pipelines de Continuous Delivery.
  
  "Findomain offers a subdomains monitoring service that provides: directory fuzzing/ports scan/vulnerabilities discovery (with Nuclei) - and more that allow you to monitor your target domains with multiple top tools (OWASP Amass, Sublist3r, Assetfinder and Subfinder) and send alerts to Discord, Slack, Telegram, Email or Push Notifications (Android/iOS/Smart Watch/Desktop) when new subdomains are found."
 
@@ -239,7 +239,7 @@ Neste caso eu quero que a notificação a ser usada, seja a que eu configurei co
   - https://github.com/R0X4R/bhedak (não recomendada)
   - XSSHunter*
 
-Essas ferramentas não são integráveis ao CD e é preciso estudar mais sobre XSS.
+Essas ferramentas não são integráveis ao pipelines de Continuous Delivery e é preciso estudar mais sobre XSS.
 
 ## XSSHunter - https://xsshunter.com/
 
@@ -251,7 +251,7 @@ Meu Payload XSS Pessoal https://blazim.xss.ht/
 
 ## Dalfox - https://github.com/hahwul/dalfox
 
-* Boa para CD
+* Boa para pipelines de Continuous Delivery
 
 * Instalação - sudo snap install dalfox
 
@@ -268,7 +268,7 @@ O parâmetro do -b é o payload pra carregar o script no site alvo de ataque, ma
 
 ## XSStrike - https://github.com/s0md3v/XSStrike
 
-Pode ser usada de forma complementar ao Dalfox. É mais simples de utilizar e se encaixa bem em CD
+Pode ser usada de forma complementar ao Dalfox. É mais simples de utilizar e se encaixa bem em pipelines de Continuous Delivery
 
 * Instalação - git clone https://github.com/s0md3v/XSStrike.git
 
@@ -290,7 +290,7 @@ Exemplo de utilização: subfinder -d hackerone -v
 ## Amass https://github.com/OWASP/Amass
 
 Ferramenta para varredura de subdomínios a partir de um dado nome de domínio. Útil para reconsiderar se as aplicações expostas estão de fato protegidas.
-Não é útil para CD, mas eventualmente pode ser utilizada para outros testes.
+Não é útil para pipelines de Continuous Delivery, mas eventualmente pode ser utilizada para outros testes.
 
 - Instalação: sudo snap install amass
 - Exemplo básico de uso: amass enum -d dominio.com.br
@@ -300,7 +300,7 @@ saida: https://gist.github.com/agojunior/a50de3c116a52cdb32f864d760516e8c
 ## DNSGen + (MassDNS, Filter-Resolve)
  Ferramenta que gera diferentes subdominios dns de forma aleatoria baseada em palavras chaves do site e padrões comuns.
  Esta lista de dns depois precisa ser validada por um serviço como MassDNS (mais popular) ou Filter-resolve (Mais simples. Instalação: < go get github.com/tomnomnom/hacks/filter-resolved https://github.com/tomnomnom/hacks/tree/master/filter-resolved >, recebe uma lista de dns, e tem output quais são validos)
- Não acho muito util para o CD.
+ Não acho muito util para o pipelines de Continuous Delivery.
 
 pip3 install dnsgen
 cat domains.txt | dnsgen - | massdns -r /path/to/resolvers.txt -t A -o J --flush 2>/dev/null 
@@ -313,7 +313,7 @@ Feita baseado na ferramenta AltDNS (mais popular)
 
 Essa ferramenta serve para validar se uma lista de subdomínios são válidos. Vejo uma utilidade nela principalmente quando combinada com um descobridor de subdomínios como o **assetfinder**, pois podemos ao mesmo tempo descobrir vários subdomínios e filtrar imediatamente apenas os subdomínios válidos. Serve como um pré-processamento para estabelecer uma superficie de ataque.
 
-Não é útil para CD, mas tem sua utilidade para testes pontuais.
+Não é útil para pipelines de Continuous Delivery, mas tem sua utilidade para testes pontuais.
 
 * Instalação do Pré-requisito MassDNS
 - Primeiramente faça clone do repositório: git clone https://github.com/blechschmidt/massdns.git
@@ -333,7 +333,7 @@ Não é útil para CD, mas tem sua utilidade para testes pontuais.
 
 ## AssetFinder - https://github.com/tomnomnom/assetfinder
 
-Assim como o Amass, essa ferramenta varre em busca de subdomínios a partir de um nome de domínio. Não é útil para o CD, mas essa ferramenta foi capaz de encontrar alguns subdomínios que o Amass não conseguiu e vice-versa. Assim, são complementares.
+Assim como o Amass, essa ferramenta varre em busca de subdomínios a partir de um nome de domínio. Não é útil para o pipelines de Continuous Delivery, mas essa ferramenta foi capaz de encontrar alguns subdomínios que o Amass não conseguiu e vice-versa. Assim, são complementares.
 
 * Instalação:
 - wget https://github.com/tomnomnom/assetfinder/releases/download/v0.1.1/assetfinder-linux-amd64-0.1.1.tgz
@@ -355,7 +355,7 @@ Busca extrair informações uteis do site, não acha nada muito relevante ao ser
  
 ## Naabu - https://github.com/projectdiscovery/naabu
 
-Ferramenta que escaneia portas abertas. Não é interessante para CD mas pode ser útil para outras avaliações.
+Ferramenta que escaneia portas abertas. Não é interessante para pipelines de Continuous Delivery mas pode ser útil para outras avaliações.
 
 Para instalaar, só seguir o read me https://github.com/projectdiscovery/naabu/blob/master/README.md
 
@@ -394,7 +394,7 @@ Exemplo de utilização: python3 sqlmap.py -u https://site-alvo --dbs
 ## SecretFinder - https://github.com/m4ll0k/SecretFinder
 
 Ferramenta que varre o código fonte da página em busca de secrets, não achei a ferramenta muito boa, mas tem alguma utilidade.
-Esta ferramenta não tem aplicação para CD, apenas para testes pontuais.
+Esta ferramenta não tem aplicação para pipelines de Continuous Delivery, apenas para testes pontuais.
 
 Exemplos de uso:
 * python3 SecretFinder.py -i https://dominio.com.br
@@ -423,7 +423,7 @@ Por fim, rodar o Naabu para fazer uma varredura de portas na lista de domínios 
 
  
 ## CF-Check (https://github.com/dwisiswant0/cf-check)
-Checa se um host é a cloudfare. Não é util para CD
+Checa se um host é a cloudfare. Não é util para pipelines de Continuous Delivery
 
 go install github.com/dwisiswant0/cf-check@latest
 
@@ -434,16 +434,16 @@ Não tem por que fazer um scan de portas (NMAP) se o host for cloudfare. Por sin
  Ferramenta para fazer varias requests http, não tem instruções de uso (parece ruim). Buscar alternativas como https://github.com/fabiobento512/FRequest https://github.com/apache/jmeter, https://github.com/locustio/locust, https://github.com/wg/wrk .
   
 ## Gf https://github.com/tomnomnom/gf
- Ferramenta para auxiliar no uso de grep em verificações complexas e evitar erros de digitação. não é util para CD.
+ Ferramenta para auxiliar no uso de grep em verificações complexas e evitar erros de digitação. não é util para pipelines de Continuous Delivery.
 
 ## Axiom https://github.com/pry0cc/axiom
  Sistema operacional com varias ferramentas de segurança pré instalada.
 
 ## Gargs https://github.com/brentp/gargs
- Ferramenta para execuções de comandos complexos via terminal, não faz sentido para CD.
+ Ferramenta para execuções de comandos complexos via terminal, não faz sentido para pipelines de Continuous Delivery.
 
 ## Gau https://github.com/lc/gau#usage
- Não é util para CD, não é util para o dominio.com.br (não retorna nada).
+ Não é util para pipelines de Continuous Delivery, não é util para o dominio.com.br (não retorna nada).
  Retorna urls alternativos conhecidos presentes em 'AlienVault's Open Threat Exchange, the Wayback Machine, Common Crawl, and URLScan' para um dominio.
 
 ## Dependency-check
